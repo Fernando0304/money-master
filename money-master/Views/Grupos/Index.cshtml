@@ -1,0 +1,58 @@
+﻿@model IEnumerable<money_master.Models.Grupo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Grupos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Adicionar grupo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participantes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recebedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Participantes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recebedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Editar</a> |                    
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
